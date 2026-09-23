@@ -1,0 +1,381 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&family=Sansita+Swashed:wght@300..900&display=swap');
+html,body,header,footer,nav,main,h1,h2,h3,h4,a,img,p,div,span,aside,article,menu,ul,ol,li{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: inherit;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Sansita Swashed","Chiron GoRound TC", sans-serif;
+}
+img{
+    vertical-align: bottom;
+}
+
+html,body{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../images/4.jpg);
+    background-size: cover;
+    background-position: center ;
+    overflow: hidden;
+    position: relative;
+}
+:root{
+    --textColor--:#fff;
+    --textTheme--:#1F60B5;
+    --textAtion--:#FAD648;
+    --textButtom--:rgba(141, 91, 242, 0.8);/*顏色有半透明的標示方法*/
+}
+header{
+    width: 100%;
+    height: 28vh;
+    line-height: 28vh;
+    padding-top: 5vh;
+    text-align: center;
+    font-size: 1.3em;
+    color:  var(--textColor--);
+    letter-spacing:2px;
+}
+/*----------首頁設計----------*/
+main#home {
+    width: 100%;
+    height: calc(100vh - 28vh - 50px); /* 總高減去 header 與 footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-bottom: 11vh;
+    position: relative;
+}
+
+/*----------水晶球容器----------*/
+.crystal-ball-container {
+    position: relative;
+    width: 65vw; /* 修改點：使用 vw 讓容器隨螢幕寬度自動放大 */
+    max-width: 720px; /* 設定桌機端最終最大上限 */
+    min-width: 440px;
+    margin: 0 auto;
+}
+
+.crystal-ball {
+    width: 100%;
+    height: auto;
+    
+}
+
+/*----------輪播視窗：文字顯示區域----------*/
+.carousel-wrapper {
+    position: absolute;
+    top: 44%; /* 向上微調以對準水晶球圓心 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px; /* 一次顯示一個詞的寬度 */
+    overflow: hidden;
+    
+    
+}
+
+/*----------輪播軌道----------*/
+.carousel-track {
+    display: flex;
+    width: 300%;
+    transition: transform 0.7s ease-in-out;
+}
+
+/*----------輪播單一項目----------*/
+.carousel-item {
+    flex: 0 0 calc(100% / 3);
+    min-width: 150px; /* 寬度需與 wrapper 一致 */
+    text-align: center;
+    font-size: 45px;
+    letter-spacing:10px;
+    text-indent: 10px;
+    font-weight: bold;
+    color: var(--textColor--);
+    cursor: pointer; 
+}
+/*----------輪播文字效果----------*/
+.carousel-item:nth-child(3n+1) {
+    color: #fff; /* 文字顏色 */
+    text-shadow: 0 0 8px #3e84da;
+    filter: drop-shadow(0 0 2px #3e84da) drop-shadow(0 0 5px #3e84da);
+}
+.carousel-item:nth-child(3n+2) {
+    color: #fff;
+    text-shadow: 0 0 8px #FF6BAE;
+    filter: drop-shadow(0 0 2px #FF6BAE) drop-shadow(0 0 5px #FF6BAE);
+}
+.carousel-item:nth-child(3n) {
+    color: #fff;
+    text-shadow: 0 0 8px #FF9853;
+    filter: drop-shadow(0 0 2px #FF9853) drop-shadow(0 0 5px #FF9853);
+}
+
+
+/*----------分頁設計----------*/
+header ul{
+    width: 100%;
+    line-height: 30vh;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    color: var(--textColor--);
+}
+header ul li{
+    margin: 0 0.3em;
+}
+header ul li a{
+    padding: 0.5em 0.8em;
+    line-height: 2em;
+    background-color: var(--textTheme--);
+    border-radius: 30px;
+}
+header ul li a:hover{
+    filter: brightness(1.1);
+}
+header ul li a:active{
+    box-shadow:  inset;
+}
+header ul li a.action{
+    background-color:var(--textAtion--);
+    color: var(--textTheme--);
+    border: 2px ;
+}
+
+main#draw{
+    width: 100%;
+    height: calc(70vh - 50px);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+main#draw .box{
+    width: 50%;
+    max-width: 350px;
+    min-width: 250px;
+    font-size: 22px;
+    text-align: center;
+    line-height: 2.5em;
+    color: var(--textColor--);
+    letter-spacing: 7px;
+}
+main#draw .box ol li{
+    cursor: pointer;
+}
+
+main#draw .box ol li:hover{
+    color: var(--textAtion--);
+    transform: scale(1.2);
+}
+
+main#draw #btn{
+    width: 100%;
+    height: 3em;
+    font-size: 22px;
+    font-weight: 900;
+    background-color: var(--textButtom--);
+    color: var(--textColor--);
+    border-radius: 50px;
+    margin: 0.5em 0;
+    box-shadow: 0 4px 15px #7b7b7b25;
+    cursor: pointer;
+    letter-spacing: 4px;
+}
+main#draw #result{
+    text-align: justify;
+    line-height: 1.6em;
+    letter-spacing: 2px;
+}
+
+main#draw .box #result.none{
+    display: none;
+}
+
+
+main#draw .box ol .item.active{
+    transform: scale(1.2);
+    color: #FAD648;
+}
+
+main#draw .box ol.none {
+    display: none;
+}
+
+footer{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    position: absolute;
+    color: var(--textColor--);
+    left: 0;
+    bottom: 0;
+}
+
+/* ----------Loading畫面---------- */
+#load{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../images/4.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column; /* 讓文字在球的上方 */
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    gap: 10px; /* 文字與球的間距 */
+}
+
+/* ----------Loading上方文字---------- */
+#load .instruction-box {
+    width: 330px; 
+    border: 1px solid #ffe735; 
+    border-radius: 15px; 
+    background-color: #1e4afc7d; 
+    padding: 25px 40px;
+    color: #fff8de;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.8em; 
+    letter-spacing: 3.6px;
+    box-shadow: 0 0 15px #5e7eff; /* 增加外光暈，維持儀式感 */
+}
+/* ----------Loading上方文字效果---------- */
+#load .instruction-box p {
+    animation: fadeInText 1.5s forwards;
+    opacity: 0;
+}
+
+#load .instruction-box p:nth-child(1) { animation-delay: 0.3s; }
+#load .instruction-box p:nth-child(2) { animation-delay: 1s; }
+#load .instruction-box p:nth-child(3) { animation-delay: 1.7s; }
+
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* ----------Loading上方文字效果結束---------- */
+
+#load.none{
+    display: none;
+}
+.crystal-container {
+    position: relative;
+    width: 55vh;/* 您原本設定的寬度 */
+    min-width: 250px; 
+    max-width: 650px; 
+    display: grid;
+    place-items: center; /* 確保內容在容器中心對齊 */
+    margin-top: -20px;
+}
+
+.crystal-container img {
+    grid-area: 1 / 1; /* 強制所有圖片疊在同一個位置 */
+    width: 100%;     /* 寬度隨容器調整 */
+    height: auto;
+}
+
+/* ----------底座圖----------*/
+.base-img {
+    z-index: 1;
+}
+
+/*----------球體圖：套用變色動畫----------*/
+.ball-overlay {
+    width: 250px;
+    z-index: 2;
+    animation: crystalColorChange 3s infinite ease-in-out;
+    pointer-events: none; /* 防止圖片干擾點擊 */
+}
+
+
+@keyframes crystalColorChange {
+    0%, 100% { filter: hue-rotate(0deg) saturate(2);opacity: 0.8;}
+    50% { filter: hue-rotate(45deg) saturate(2); opacity: 0.8;}
+    /*50% { filter: hue-rotate(180deg); opacity: 0.7; }
+    75% { filter: hue-rotate(200deg); opacity: 0.7; } */
+}
+
+/*----------設定RWD----------*/
+@media only screen and (min-width: 834px) {
+    main#home {
+        max-width: none; /* 移除最大寬度限制，讓內容可繼續放大 */
+        height: calc(100vh - 28vh - 50px);
+        padding-bottom: 0;
+        display: flex;
+        align-items: center;
+    }
+    /* 首頁水晶球容器 */
+    .crystal-ball-container {
+        width: 60vh; /* 平板上球體佔比 */
+        max-width: 720px;
+        min-width: 440px;
+    }
+    .carousel-wrapper {
+        position: absolute;
+        top: 44%;          
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150px; /* 建議維持固定寬度，確保與文字項目的 min-width 一致 */
+        overflow: hidden;
+    }
+    .carousel-track {
+        display: flex !important;
+    }
+    /* Loading 頁面水晶球容器 */
+    #load .crystal-container {
+        width: 60vh; 
+    }
+    /* Loading 文字框 */
+    #load .instruction-box{
+        width: 350px;
+        font-size: 18px;
+    }
+}
+@media only screen and (min-width: 1100px){
+    .crystal-ball-container {
+        width: 77vh;
+    }
+    #load .instruction-box{
+        width: 400px;
+        font-size: 19px;
+        padding: 30px 30px;
+        margin-top: 10vh; /* 從頂部推開 15% 螢幕高度，可依喜好微調 */
+    }
+}
+@media only screen and (min-width: 1440px) {
+    .carousel-wrapper {
+        width: 250px; /* 放大文字容器，*/
+    }
+    
+    .carousel-item {
+        flex: 0 0 250px; /* 寬度必須與 wrapper 一致 */
+        min-width: 250px;
+        font-size: 58px; /* 您可以依視覺手感微調，例如 65px ~ 80px */
+        letter-spacing: 20px; /* 隨比例微增字距 */
+    }
+
+    /* 首頁 容器 */
+    .crystal-container {
+        width: 72vh; /* 提高佔比，解決顯得太小的問題 */
+
+    }
+
+    #load .crystal-container img{
+        width: 72vh;
+    }
+    /* Loading 容器 */
+    #load .instruction-box{
+        width: 72vh;
+        font-size: 22px;
+        padding: 30px;
+        margin-top: 10vh; /* 從頂部推開 15% 螢幕高度，可依喜好微調 */
+    }
+}
