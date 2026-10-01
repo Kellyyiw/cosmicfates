@@ -214,7 +214,7 @@ main#draw #btn:hover{
     color: var(--textAtion--); /* 滑過時文字變黃色 */
 }
 main#draw #result{
-    text-align: justify;
+    text-align: center;
     line-height: 1.6em;
     letter-spacing: 2px;
     margin-bottom: 1.5em; /* 與「再抽一次」按鈕的距離 */
@@ -243,6 +243,12 @@ footer{
     color: var(--textColor--);
     left: 0;
     bottom: 0;
+}
+/* 版權文字縮小；英數改無襯線（Helvetica／Arial 不含中文，中文仍沿用 Chiron GoRound TC） */
+footer p{
+    font-size: 13px;
+    font-family: "Helvetica Neue", Arial, "Chiron GoRound TC", sans-serif;
+    letter-spacing: 0.5px;
 }
 
 /* ----------Loading畫面---------- */
@@ -364,6 +370,10 @@ footer{
     }
     #load .instruction-box{
         transform: scale(1.2); /* 文字框放大  */
+        /* 放大後仍需留在螢幕內：寬度扣掉左右各 20px 再除以放大倍率 */
+        width: min(330px, calc((100vw - 40px) / 1.2));
+        padding: 22px 16px;
+        letter-spacing: 2px;
     }
 }
 @media only screen and (min-width: 834px) {
