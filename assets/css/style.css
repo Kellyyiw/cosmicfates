@@ -361,10 +361,13 @@ footer p{
     }
     header h1{
         font-size: 1.4em;
-        transform: translateY(-2vh); /* 標題往上移 */
+        transform: translateY(0); /* 標題位置 */
     }
+    /* 球的高度不超過可用空間(main 高度扣掉下方 11vh 留白)，矮螢幕才不會切到球頂 */
     .crystal-ball-container{
-        transform: translateY(-2vh); /* 整顆水晶球往上移 2% 螢幕高度 */
+        min-width: 0;
+        width: min(440px, calc(100dvh - 28vh - 50px - 11vh));
+        transform: translateY(0);
     }
     /* 內頁(運勢/愛情/工作)：選單與內容整組往上移，footer 與背景不動 */
     header:has(> ul),
