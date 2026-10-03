@@ -363,10 +363,11 @@ footer p{
         font-size: 1.4em;
         transform: translateY(0); /* 標題位置 */
     }
-    /* 球的高度不超過可用空間(main 高度扣掉下方 11vh 留白)，矮螢幕才不會切到球頂 */
+    /* 球維持原尺寸；矮螢幕時球比 main 高，不裁切以免切到球頂 */
+    main#home{
+        overflow: visible;
+    }
     .crystal-ball-container{
-        min-width: 0;
-        width: min(440px, calc(100dvh - 28vh - 50px - 11vh));
         transform: translateY(0);
     }
     /* 內頁(運勢/愛情/工作)：選單與內容整組往上移，footer 與背景不動 */
