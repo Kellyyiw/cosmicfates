@@ -352,18 +352,26 @@ footer p{
 /*----------設定RWD----------*/
 /* 手機版：首頁標題縮小(834px 以上的電腦/平板不受影響) */
 @media only screen and (max-width: 833px) {
+    /* 手機瀏覽器網址列/工具列會蓋住 100vh 的底部，改用實際可視高度 */
+    html,body{
+        height: 100dvh;
+    }
+    main#home{
+        height: calc(100dvh - 28vh - 50px);
+    }
     header h1{
         font-size: 1.4em;
         transform: translateY(5vh); /* 標題往下移 */
     }
-    /* 首頁水晶球圖片放大 21%，中間跑馬燈文字不受影響 */
+    /* 首頁水晶球圖片放大 5%，中間跑馬燈文字不受影響 */
     .crystal-ball{
-        transform: scale(1.21); /* 放大 10% 再放大 10% (1.1 × 1.1) */
+        transform: scale(1.05);
         transform-origin: 50% 44%; /* 以文字所在位置為中心放大，文字才不會偏離球心 */
     }
     /* Loading 頁：水晶球與首頁同大小，文字框＋球整組上移 */
     #load{
-        --ball: calc(max(65vw, 440px) * 1.21 * 0.98); /* 首頁水晶球大小(容器寬 × 1.21)再縮小 2% */
+        --ball: calc(max(65vw, 440px) * 1.05 * 0.98); /* 首頁水晶球大小(容器寬 × 1.05)再縮小 2% */
+        height: 100dvh;
         padding-top: 0;
         padding-bottom: 0; /* 文字框＋球整組在畫面正中間 */
         overflow: hidden; /* 球圖比螢幕寬，避免出現橫向捲動 */
