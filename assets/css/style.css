@@ -356,12 +356,20 @@ footer p{
     html,body{
         height: 100dvh;
     }
+    /* 背景縮小為螢幕高度 90%、貼齊底部；上方空白補上星空色，並以漸層柔化接縫 */
+    html,body,#load{
+        background-image: linear-gradient(to bottom, #072f56 10%, transparent 18%), url(../images/4.jpg);
+        background-size: 100% 100%, auto 90%;
+        background-position: center, center bottom;
+        background-repeat: no-repeat;
+        background-color: #072f56;
+    }
     main#home{
         height: calc(100dvh - 28vh - 50px);
     }
     header h1{
         font-size: 1.4em;
-        transform: translateY(5vh); /* 標題往下移 */
+        transform: translateY(2vh); /* 標題往下移 */
     }
     /* 首頁水晶球圖片縮小(1.05 × 0.9)，中間跑馬燈文字不受影響 */
     .crystal-ball{
